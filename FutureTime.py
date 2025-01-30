@@ -16,7 +16,8 @@ def main():
   strCMin = str(currentMinute)
   if currentMinute < 10:
     strCMin = "0" + strCMin
-  print (strCHour + ":" + strCMin) #this is just for checking, we should delete it later
+  print (strCHour + ":" + strCMin)
+ #this is just for checking, we should delete it later
 
   #TODO:
   #Ask user for hours
@@ -31,9 +32,12 @@ def main():
   futureM = input("Enter minutes: ")
   futureM = int(futureM)
 
-  futureMinute = (currentMinute + futureM)
+  futureMinute = ((currentMinute + futureM) % 60)
 
   print(futureMinute)
+
+  #if futureM > 60:
+    #strHour = (futureM % 60) + futureHours
 
   strHour = str(futureHours)
   strMin = str(futureMinute)
@@ -42,12 +46,11 @@ def main():
 
   if futureMinute < 10:
     strMin = "0" + strMin
+
   print(strHour + ":" + strMin)
   print(FutureH)
   #Do not use any if statements in calculating the time.
 
   #Output the future time in standard format "HH:MM"
-
-
 if __name__ == '__main__':
   main()
