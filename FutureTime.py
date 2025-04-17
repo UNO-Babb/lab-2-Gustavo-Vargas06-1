@@ -9,7 +9,7 @@ import datetime
 def main():
   #getting current time from system, storing to variable
   now = datetime.datetime.now()
-  currentHour = (now.hour - 6) % 12
+  currentHour = (now.hour - 5) % 12
   currentMinute = (now.minute)
 
   strCHour = str(currentHour)
@@ -26,29 +26,37 @@ def main():
   futureH = int(futureH)
 
   futureHours = (currentHour + futureH) % 12
-  print(futureHours)
+  
 
   #Ask user for minutes
   futureM = input("Enter minutes: ")
   futureM = int(futureM)
 
+  #futurem = futureM % 60
+
   futureMinute = ((currentMinute + futureM) % 60)
+  futureMin = (currentMinute + futureM) // 60
+  
 
-  print(futureMinute)
+  #futureMinute = futureMinute + futurem
 
-  #if futureM > 60:
-    #strHour = (futureM % 60) + futureHours
+  
+  
 
-  strHour = str(futureHours)
+
+  
   strMin = str(futureMinute)
   #Calculate the time after the user-supplied time has passed.
   FutureH = futureHours + (futureMinute // 60)
+  FutureH = FutureH + futureMin
+  FutureH = FutureH % 12
+  strHour = str(FutureH)
 
   if futureMinute < 10:
     strMin = "0" + strMin
 
   print(strHour + ":" + strMin)
-  print(FutureH)
+  
   #Do not use any if statements in calculating the time.
 
   #Output the future time in standard format "HH:MM"
